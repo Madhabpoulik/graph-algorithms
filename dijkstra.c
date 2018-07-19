@@ -18,6 +18,11 @@ int main()
 
     printf("\nEnter the starting node:");
     scanf("%d",&u);
+    if(u>n-1){
+        printf("wrong input enter new input which is less than %d",n);
+        printf("\nEnter the starting node:");
+        scanf("%d",&u);
+    }
     dijkstra(G,n,u);
     return 0;
 }
@@ -62,11 +67,11 @@ void dijkstra(int G[MAX][MAX],int n,int start)
                     }
         count++;
     }
+    printf("vertex   distance    from source   path\n");
     for(i=0;i<n;i++)
         if(i!=start)
         {
-            printf("\nDistance of node%d=%d",i,dist[i]);
-            printf("\nPath=%d",i);
+            printf("\n  %d\t   %d\t \t %d\t   %d",i,dist[i],start,i);
 
             j=i;
             do
